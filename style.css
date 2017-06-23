@@ -1,0 +1,26 @@
+var $textInput = $("#textInput"),
+    $button = $("#doAction"),
+    $display = $("#display");
+      
+    $button.on("click", function(){
+      let word = $textInput.val(),
+          result = "";
+        
+      if (checkPalindrome(word)) {
+        result = `${word} is a palindrome.`;
+      }else{
+        result = `${word} is NOT palindrome.`;          
+      }
+        
+      $display.append(`<li>${result}</li>`);
+    });  
+      
+    function checkPalindrome(word) {
+      let reversedWord = word.split("").reverse().join("");
+      console.log(word, reversedWord);
+      if (word === reversedWord) {
+        return true;
+      }else{
+        return false;
+      }
+    }
